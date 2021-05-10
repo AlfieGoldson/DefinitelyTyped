@@ -318,6 +318,8 @@ declare namespace IORedis {
 
         rpop(key: KeyType, callback: Callback<string>): void;
         rpop(key: KeyType): Promise<string>;
+        rpop(key: KeyType, count: number, callback: Callback<string[]>): void;
+        rpop(key: KeyType, count: number): Promise<string[]>;
 
         lpop(key: KeyType, callback: Callback<string>): void;
         lpop(key: KeyType): Promise<string>;
@@ -1252,8 +1254,10 @@ declare namespace IORedis {
         lpush(key: KeyType, ...values: ValueType[]): Pipeline;
 
         rpushx(key: KeyType, value: ValueType, callback?: Callback<number>): Pipeline;
+        rpushx(key: KeyType, ...values: ValueType[]): Pipeline;
 
         lpushx(key: KeyType, value: ValueType, callback?: Callback<number>): Pipeline;
+        lpushx(key: KeyType, ...values: ValueType[]): Pipeline;
 
         linsert(
             key: KeyType,
